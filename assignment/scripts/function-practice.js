@@ -75,18 +75,6 @@ console.log('last item in array is:', getLast(sandwich) );
 let planets = [ 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune' ];
 let numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-// function find( value, array ){
-//   for (let i in array) {
-//     if (String(array[i]) === String(value)){
-//       return true;
-//     }
-//     else {
-//       return false;
-//       i++;
-//     }
-//   }
-// }
-
 function find( value, array ){
   for (i = 0; i < array.length; i++) {
     if (array[i] === value){
@@ -98,10 +86,10 @@ function find( value, array ){
   }
 }
 
-console.log('is neptune a planet?:', find('neptune', planets));
-console.log('is pluto a planet?:', find('pluto', planets));
-console.log('is 5 in my list?:', find(5, numbers));
-console.log('is 0 in my list?:', find(0, numbers));
+console.log('is neptune a planet?:', find('neptune', planets)); // not working :(
+console.log('is pluto a planet?:', find('pluto', planets));     // not working :(
+console.log('is 5 in my list?:', find(5, numbers));             // not working :(
+console.log('is 0 in my list?:', find(0, numbers));             // not working :(
 
 // ----------------------
 // Stretch Goals
@@ -110,7 +98,7 @@ console.log('is 0 in my list?:', find(0, numbers));
 //    string. Return true if it is, and false otherwise
 
 function isFirstLetter(letter, string) {
-  if(letter === string.charAt(0)){  // also could use .substr
+  if(letter === string.charAt(0)){  // also could use .substr(0, 1)
     return true;
   }
   else {
@@ -122,10 +110,17 @@ console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
+
+function sumAll( array ) {
   let sum = 0;
-// TODO: loop to add items
+  for( i in array ){
+    sum += array[i];
+    i++;
+  }
+  return sum;
 }
+
+console.log('sum of all numbers in array', sumAll(numbers));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
@@ -156,3 +151,16 @@ bePositive(randomNum2, positiveNum)
 // 11. Pick a problem from Edabit(https://edabit.com/) or
 //     CodeWars(https://www.codewars.com/). Then describe it
 //     here in a comment, write the function, and test it!
+
+//////// Edabit - Find the Perimeter of a Rectangle ////////
+////// https://edabit.com/challenge/XnJ24rWW7iJkNrtsh //////
+
+// Create a function that takes length and width and finds the perimeter of a rectangle.
+
+function findPerimiter (h, w) {
+  return 2 * ( h + w );
+}
+
+console.log('Perimiter of a 4" x 6" rectangle is:', findPerimiter(4, 6), 'inches!');        // 20
+console.log('Perimiter of a 10" x 0.5" rectangle is:', findPerimiter(10, 0.5), 'inches!');  // 21
+console.log('Perimiter of a 420" x 69" rectangle is:', findPerimiter(420, 69), 'inches!');  // 978
