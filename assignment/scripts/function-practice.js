@@ -59,12 +59,12 @@ console.log( 'isPositive - should say false', isPositive(-3) );
 // 6. Function to return the _last_ item in an array. If the
 //    array is empty, return `undefined`.
 
+let sandwich = [ 'bottom bun', 'turkey', 'ham', 'cheese', 'tomato', 'mayo', 'top bun' ]
+
 function getLast( array ) {
-lastItem = array[array.length - 1]
-return lastItem;
+return array[array.length - 1]
 }
 
-let sandwich = [ 'bottom bun', 'turkey', 'ham', 'cheese', 'tomato', 'mayo', 'top bun' ]
 console.log('last item in array is:', getLast(sandwich) );
 
 
