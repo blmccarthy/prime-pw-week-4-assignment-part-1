@@ -76,20 +76,18 @@ let planets = [ 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranu
 let numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function find( value, array ){
-  for (i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i] === value){
       return true;
     }
-    else {
-      return false;
-    }
   }
-}
+  return false; // Not sure why the return needs to be outside of the for loop?
+}               // This does work though (with thanks to Brandon!)
 
-console.log('is neptune a planet?:', find('neptune', planets)); // not working :(
-console.log('is pluto a planet?:', find('pluto', planets));     // not working :(
-console.log('is 5 in my list?:', find(5, numbers));             // not working :(
-console.log('is 0 in my list?:', find(0, numbers));             // not working :(
+console.log('is neptune a planet?:', find('neptune', planets));
+console.log('is pluto a planet?:', find('pluto', planets));
+console.log('is 5 in my list?:', find(5, numbers));
+console.log('is 0 in my list?:', find(0, numbers));
 
 // ----------------------
 // Stretch Goals
