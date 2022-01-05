@@ -58,6 +58,7 @@ console.log( 'isPositive - should say false', isPositive(-3) );
 
 // 6. Function to return the _last_ item in an array. If the
 //    array is empty, return `undefined`.
+
 function getLast( array ) {
 lastItem = array[array.length - 1]
 return lastItem;
@@ -70,16 +71,51 @@ console.log('last item in array is:', getLast(sandwich) );
 // 7. Function to find a value in an array. Return true if the
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find
-function find( value, array ){
 
+let planets = [ 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune' ];
+let numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// function find( value, array ){
+//   for (let i in array) {
+//     if (String(array[i]) === String(value)){
+//       return true;
+//     }
+//     else {
+//       return false;
+//       i++;
+//     }
+//   }
+// }
+
+function find( value, array ){
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === value){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
+
+console.log('is neptune a planet?:', find('neptune', planets));
+console.log('is pluto a planet?:', find('pluto', planets));
+console.log('is 5 in my list?:', find(5, numbers));
+console.log('is 0 in my list?:', find(0, numbers));
 
 // ----------------------
 // Stretch Goals
 // ----------------------
 // 8. Function to check if a letter is the first letter in a
 //    string. Return true if it is, and false otherwise
+
 function isFirstLetter(letter, string) {
+  if(letter === string.charAt(0)){  // also could use .substr
+    return true;
+  }
+  else {
+    return false;
+  }
 
 }
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
@@ -87,15 +123,34 @@ console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll( ) {
-  let sum = 0
-  // TODO: loop to add items
-  return sum;
+  let sum = 0;
+// TODO: loop to add items
 }
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
 
+let randomNum1 = [4, -2, 0, 69, 0.5, -10]   // mix of positives
+let randomNum2 = [-2, -40, -55, 0]          // only negatives
+let positiveNum = []                        // blank array for function
+
+function bePositive(array1, array2) {
+  for (x in array1){
+    if (array1[x] > 0){
+      array2.push(array1[x])  // pushes positive numbers to new array
+      x++;
+    }
+    else {
+      x++;                  // skips to next number in array
+    }
+  }
+  console.log(array2);      // reports positive numbers in new array
+  array2.length = 0;        // clears out array to be used again
+}
+
+bePositive(randomNum1, positiveNum)
+bePositive(randomNum2, positiveNum)
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or
